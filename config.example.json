@@ -1,0 +1,96 @@
+{
+  "_说明": "复制为 config.json 后修改。所有地址均为本地回环默认，无环境特定信息。先跑 model_sync --dry-run 看过滤结果，再 gen_patch。",
+
+  "bridge": {
+    "_说明": "OpenAI 兼容代理网关端点（如 FCC / 任意本地代理）。本地回环默认；如网关在别的机器，改成 http://<网关主机>:<端口>",
+    "catalog_url": "http://127.0.0.1:8082/v1/models",
+    "chat_url": "http://127.0.0.1:8082/v1/chat/completions",
+    "_auth说明": "形如 'Header: value'。留空表示无需认证。切勿在此写真实密钥——用环境变量或网关本地配置",
+    "auth_header": "Authorization: Bearer local"
+  },
+
+  "models": {
+    "list_path": "~/.dsh/cloud-models.json",
+    "_id_prefix说明": "从目录 id 截取规范模型 id 的起始标记；网关 id 形如 xxx/nvidia_nim/vendor/model 时填 'nvidia_nim/'；无需截取则留空",
+    "id_prefix": "nvidia_nim/",
+    "keep_unverified": true,
+    "model_template": {
+      "contextWindow": 200000,
+      "reasoningEfforts": {
+        "off": 0, "minimal": 1024, "low": 2048, "medium": 4096,
+        "high": 8192, "xhigh": 16384, "max": 32768
+      }
+    }
+  },
+
+  "filter": {
+    "exclude_keywords": [
+      "embed", "rerank", "guard", "safety", "pii", "translat",
+      "calibrat", "moderation", "vision", "gliner", "ocr"
+    ],
+    "_max说明": "一轮最多探活模型数。速率上限约 40 RPM 时不要超过 40",
+    "max_models": 40
+  },
+
+  "probe": {
+    "interval_sec": 1.5,
+    "timeout_sec": 45,
+    "max_tokens": 1,
+    "circuit_break_on_429": true
+  },
+
+  "post_sync": {
+    "_说明": "同步完成后的动作，留空跳过。路径按你的实际环境填",
+    "gen_patch_command": "",
+    "restart_command": ""
+  },
+
+  "schedule": {
+    "success_marker": "~/.dsh/.model-sync-success-date"
+  },
+
+  "_patch说明": "以下段供 gen_patch.py 使用，与 model_sync.py 共用本文件",
+  "output": {
+    "patch_path": "~/.dsh/fcc-merged.patch.yml",
+    "format": "json",
+    "backup": true
+  },
+  "local": {
+    "enabled": true,
+    "provider_id": "local-ollama",
+    "display_name": "Local Ollama",
+    "base_url": "http://127.0.0.1:11434/v1",
+    "api": "openai-completions",
+    "api_key_env": "OLLAMA_API_KEY",
+    "models_command": "",
+    "_models_command说明": "留空则用下方 models 静态列表；填 'ollama list' 则自动读取本地模型",
+    "models": [
+      { "id": "qwen3:8b", "name": "Qwen3 8B", "contextWindow": 131072, "maxTokens": 8192 }
+    ],
+    "default_input": ["text"]
+  },
+  "cloud": {
+    "enabled": true,
+    "provider_id": "free-claude-code",
+    "display_name": "Free Cloud Models",
+    "base_url": "http://127.0.0.1:8082/v1",
+    "api": "openai-responses",
+    "api_key_env": "FCC_DSH_API_KEY",
+    "models_path": "~/.dsh/cloud-models.json"
+  },
+  "default_model": {
+    "provider": "local-ollama",
+    "model": "qwen3:8b"
+  },
+  "disable_builtin": ["llm-deepseek", "llm-deepseek-account", "web-search-deepseek"],
+
+  "target": {
+    "_说明": "local=网关和 DSH 都在本机；ssh=远程管理（模型清单写到目标机）",
+    "mode": "local",
+    "host": "your-host.example.com",
+    "user": "your-ssh-user",
+    "port": 22,
+    "ssh_key": "~/.ssh/id_ed25519",
+    "ssh_options": ""
+  }
+}
