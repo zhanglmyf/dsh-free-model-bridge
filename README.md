@@ -1,5 +1,6 @@
 # DSH Free Model Bridge
 
+[![Stars](https://img.shields.io/github/stars/zhanglmyf/dsh-free-model-bridge?style=social)](https://github.com/zhanglmyf/dsh-free-model-bridge/stargazers)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Python 3.9+](https://img.shields.io/badge/Python-3.9%2B-blue.svg)](https://www.python.org/)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
@@ -10,7 +11,7 @@
 
 ![架构](assets/banner.svg)
 
-> 前置：DSH 已部署（可用 [DSH Universal Installer](https://github.com/<owner>/dsh-universal-installer)），且有一个** OpenAI 兼容的代理网关**（如 FCC 等）暴露免费模型目录。
+> 前置：DSH 已部署（可用 [DSH Universal Installer](https://github.com/zhanglmyf/dsh-universal-installer)），且有一个** OpenAI 兼容的代理网关**（如 FCC 等）暴露免费模型目录。
 
 ## 它做什么
 
@@ -120,6 +121,13 @@ bash templates/install-schedule.sh systemd   # 或 cron / launchd / windows
 - `config.json` 含端点信息，建议加入 `.gitignore`
 - 任何 API Key 都不要写进本项目的文件；通过环境变量或网关自身配置注入
 - 调试输出注意脱敏
+
+## 相关项目
+
+- [xiaomi-speaker-workbuddy-bridge](https://github.com/zhanglmyf/xiaomi-speaker-workbuddy-bridge) — 把任意小米/小爱音箱接入 AI 语音助手
+- [dsh-universal-installer](https://github.com/zhanglmyf/dsh-universal-installer) — 跨平台部署 DeepSeek Harness
+- [dsh-free-model-bridge](https://github.com/zhanglmyf/dsh-free-model-bridge)**（当前项目）** — 让 DSH 自动加载免费云端模型
+- [lan-transparent-proxy](https://github.com/zhanglmyf/lan-transparent-proxy) — 局域网透明代理一键部署
 
 ## License
 

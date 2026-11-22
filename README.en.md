@@ -1,5 +1,6 @@
 # DSH Free Model Bridge
 
+[![Stars](https://img.shields.io/github/stars/zhanglmyf/dsh-free-model-bridge?style=social)](https://github.com/zhanglmyf/dsh-free-model-bridge/stargazers)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Python 3.9+](https://img.shields.io/badge/Python-3.9%2B-blue.svg)](https://www.python.org/)
 
@@ -51,6 +52,13 @@ Desktop notes: the sync scripts are Python 3.9+ and run on Windows/macOS/Linux �
 - [Deploy modes](docs/DEPLOY-MODES.md)
 - [Configuration](docs/CONFIGURATION.md)
 - [Troubleshooting](docs/TROUBLESHOOTING.md)
+
+## Related projects
+
+- [xiaomi-speaker-workbuddy-bridge](https://github.com/zhanglmyf/xiaomi-speaker-workbuddy-bridge) — Turn any Xiaomi speaker into a voice AI assistant
+- [dsh-universal-installer](https://github.com/zhanglmyf/dsh-universal-installer) — Deploy DeepSeek Harness anywhere
+- [dsh-free-model-bridge](https://github.com/zhanglmyf/dsh-free-model-bridge) **(this project)** — Auto-load free cloud models into DSH
+- [lan-transparent-proxy](https://github.com/zhanglmyf/lan-transparent-proxy) — One-click LAN transparent proxy
 
 ## License
 
