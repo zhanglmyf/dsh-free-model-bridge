@@ -1,0 +1,12 @@
+[Unit]
+Description=Free Model Bridge — sync free cloud model list for DSH
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=%h
+Environment=HOME=%h
+Environment=PATH=%h/.local/bin:/usr/local/bin:/usr/bin:/bin
+ExecStart=/usr/bin/python3 %h/.dsh/scripts/model_sync.py --config %h/.dsh/config.json --scheduled
+TimeoutStartSec=900
