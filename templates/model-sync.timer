@@ -1,0 +1,11 @@
+[Unit]
+Description=Periodic free cloud model list sync
+
+[Timer]
+# 每周六 7/9/11/13/15/17/19 点各触发一次；当天已有成功标记则脚本内跳过
+OnCalendar=Sat 07,09,11,13,15,17,19:00:00
+Persistent=true
+RandomizedDelaySec=120
+
+[Install]
+WantedBy=timers.target
