@@ -1,0 +1,9 @@
+config.json
+cloud-models.json
+*.bak
+*.bak-*
+__pycache__/
+*.pyc
+.env
+*.key
+.DS_Store
