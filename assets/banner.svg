@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 220" width="900" height="220" role="img" aria-label="DSH Free Model Bridge pipeline">
+  <defs>
+    <linearGradient id="bg2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f0fdfa"/>
+      <stop offset="1" stop-color="#eef2ff"/>
+    </linearGradient>
+    <linearGradient id="accent2" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#0d9488"/><stop offset="1" stop-color="#4f46e5"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="220" rx="18" fill="url(#bg2)" stroke="#e2e8f0"/>
+  <text x="36" y="46" font-family="system-ui, sans-serif" font-size="24" font-weight="700" fill="#0f172a">DSH Free Model Bridge</text>
+  <text x="36" y="72" font-family="system-ui, sans-serif" font-size="13" fill="#475569">拉目录 → 过滤 → 限速探活 → 合并 patch → 定时维护</text>
+
+  <g font-family="system-ui, sans-serif" font-size="12" fill="#334155">
+    <g>
+      <rect x="36" y="100" width="130" height="52" rx="10" fill="#fff" stroke="#cbd5e1"/>
+      <text x="101" y="124" text-anchor="middle" font-weight="600">网关目录</text>
+      <text x="101" y="142" text-anchor="middle" fill="#64748b">/v1/models</text>
+    </g>
+    <path d="M170 126 L205 126" stroke="#94a3b8" stroke-width="2" marker-end="url(#ar)"/>
+    <g>
+      <rect x="210" y="100" width="130" height="52" rx="10" fill="#fff" stroke="#cbd5e1"/>
+      <text x="275" y="124" text-anchor="middle" font-weight="600">过滤 + 探活</text>
+      <text x="275" y="142" text-anchor="middle" fill="#64748b">429 熔断</text>
+    </g>
+    <path d="M344 126 L379 126" stroke="#94a3b8" stroke-width="2" marker-end="url(#ar)"/>
+    <g>
+      <rect x="384" y="100" width="130" height="52" rx="10" fill="#fff" stroke="#cbd5e1"/>
+      <text x="449" y="124" text-anchor="middle" font-weight="600">模型清单</text>
+      <text x="449" y="142" text-anchor="middle" fill="#64748b">cloud-models.json</text>
+    </g>
+    <path d="M518 126 L553 126" stroke="#94a3b8" stroke-width="2" marker-end="url(#ar)"/>
+    <g>
+      <rect x="558" y="100" width="130" height="52" rx="10" fill="#fff" stroke="#cbd5e1"/>
+      <text x="623" y="124" text-anchor="middle" font-weight="600">合并 patch</text>
+      <text x="623" y="142" text-anchor="middle" fill="#64748b">本地 + 云端</text>
+    </g>
+    <path d="M692 126 L727 126" stroke="#94a3b8" stroke-width="2" marker-end="url(#ar)"/>
+    <g>
+      <rect x="732" y="100" width="132" height="52" rx="10" fill="#fff" stroke="url(#accent2)" stroke-width="2"/>
+      <text x="798" y="124" text-anchor="middle" font-weight="600" fill="#4f46e5">DSH 下拉</text>
+      <text x="798" y="142" text-anchor="middle" fill="#64748b">按需切换</text>
+    </g>
+  </g>
+  <defs>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+  <text x="36" y="190" font-family="system-ui, sans-serif" font-size="12" fill="#64748b">铁律：串行 · 429 熔断 · 超时不删 · 先备份 · 清单不含密钥</text>
+</svg>
